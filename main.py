@@ -1,24 +1,26 @@
-try:
-    num1 = int(input("\nВведите первое число: "))
-    num2 = int(input("Введите второе число: "))
-    print(
-        "Выберите номер 1, для операции сложения; 2, для операции вычитания; \n               3, для операции умножения; 4, для операции деления;")
-    num3 = int(input("Введите порядковый номер операции: "))
-    match num3:
-        case 1:
-            result = num1 + num2
-        case 2:
-            result = num1 - num2
-        case 3:
-            result = num1 * num2
-        case 4:
-            result = num1 / num2
-        case _:
-            result = "-"
-            print("Указанный номер не соответсвует списку операций :(")
-except ValueError:
-    print("Ошибка: введено не число!")
-except ZeroDivisionError:
-    print("Ошибка: Деление на ноль!")
-else:
-    print(f"Результат операции: {result}")
+def max_number(a, b):
+    if b>a: a=b
+    return a
+
+
+def empty_function():
+    pass
+
+
+def even_numbers( n ):
+    for i in range (0, n + 1, 2):
+        yield i
+
+
+def test_max_number():
+    assert max_number(3, 5) == 5, "Ошибка: максимум из (3, 5) должен быть равен 5"
+    assert max_number(-3, -5) == -3, "Ошибка: максимум из (-3, -5) должен быть равен -3"
+    assert max_number(-3, 0) == 0, "Ошибка: максимум из (-3, 0) должен быть равен 0"
+    assert max_number(5, 5) == 5, "Ошибка: максимум из (5, 5) должен быть равен 5"
+
+
+print(max_number(3,5))
+for even in even_numbers(6):
+    print(even)
+test_max_number()
+print("Все тесты пройдены!")
